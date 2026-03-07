@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Issues Tracker</title>
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- Tailwind and daisy UI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!--font-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen max-w-[520px] mx-auto shadow-sm">
+    <header class="flex flex-col justify-center items-center">
+      <div class="logo w-[100px] mb-5 mt-8">
+        <img src="./assets/github-logo.png" alt="" />
+      </div>
+      <h2 class="font-bold text-2xl mb-1">GitHub Issues Tracker</h2>
+      <p class="text-[#64748B]">Sign in to manage your issues</p>
+    </header>
+
+    <!-- login -->
+
+    <fieldset
+      class="fieldset mx-auto rounded-box w-[426px] p-4  "
+    >
+      <label class="label text-[#2f5185]">Username</label>
+      <input type="text" class="input w-[426px]" placeholder="Enter username" />
+
+      <label class="label text-[#2f5185]">Password</label>
+      <input type="password" class="input w-[426px]" placeholder="Password" />
+
+      <button class="btn btn-primary mt-4 w-[426px]">Login</button>
+    </fieldset>
+
+
+    <div class="or flex items-center gap-4 py-5 w-10/12 mx-auto ">
+        <div class="flex-1 h-px bg-[#E4E4E7]"></div>
+        <span class="font-medium text-[#1F2937]">OR</span>
+        <div class="flex-1 h-px bg-[#E4E4E7]"></div>
+    </div>
+
+    <section class="demo">
+        <p class="text-center text-[#64748B] text-sm mb-2 mt-2">Demo Credentials</p>
+        <div class="bg-[#F8FAFC] flex flex-col items-center py-6">
+            <p><span class="font-semibold">Username:</span> admin</p>
+            <p><span class="font-semibold">Password:</span> admin123</p>
+        </div>
+    </section>
+  </body>
+</html>

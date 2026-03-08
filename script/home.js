@@ -6,6 +6,7 @@ const closeBtn = document.getElementById("closed-btn");
 const buttons = document.querySelectorAll(".btn1");
 
 
+
 const spinnerManage = (status) => {
   if(status==true){
     document.getElementById("spinner").classList.remove("hidden")
@@ -105,7 +106,7 @@ const displayIssues = (issues) => {
 
   issues.forEach((issue) => {
     const cardDiv = document.createElement("div");
-    cardDiv.innerHTML = `<div class="card space-y-4 shadow-sm p-3 border-t-3 ${issue.status == "open" ? "border-green-500" : "border-purple-500"}">
+    cardDiv.innerHTML = `<div class="card space-y-4 shadow-sm p-3 border-t-3 ${issue.status == "open" ? "border-green-500" : "border-purple-500"} h-full">
 
         <div class="flex justify-between">
         <div><img src="./assets/Open-Status.png" alt="" /></div>

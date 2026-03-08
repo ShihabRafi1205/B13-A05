@@ -5,7 +5,7 @@ document.getElementById("login-btn").addEventListener("click", (e) => {
   const inputPassword = document.getElementById("password-input");
 
   if (userName.value == "admin" && inputPassword.value == "admin123") {
-    window.location.assign("/home.html");
+    window.location.assign("./home.html");
   } else {
     alert("Login failed");
     return;

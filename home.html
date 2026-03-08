@@ -82,7 +82,9 @@
 
     <section class="w-10/12 shadow-sm mx-auto flex justify-between p-3 mt-3">
       <div class="flex items-center gap-2">
-        <div class="img bg-purple-100 p-2 rounded-full"><img src="./assets/Aperture.png" alt="" /></div>
+        <div class="img bg-purple-100 p-2 rounded-full">
+          <img src="./assets/Aperture.png" alt="" />
+        </div>
         <div>
           <p class="font-bold">50 Issues</p>
           <p class="sm:tex-[10px] md:text-lg">
@@ -106,27 +108,34 @@
       </div>
     </section>
 
-    <section id="issues-container" class="p-3 shadow-md w-10/12 mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-3">
-    
+    <!-- Spinner -->
+    <section id="spinner" class="flex justify-center items-center py-10 hidden">
+      <span class="loading loading-bars loading-xl"></span>
     </section>
-
+    
+    
+    
+    
+      <section
+      id="issues-container"
+      class="p-3 shadow-md w-10/12 mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-3"
+    ></section>
 
     <!-- Modal -->
 
     <!-- Open the modal using ID.showModal() method -->
-<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
-<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-  <div class="modal-box">
-    <div id="modalContainer"></div>
-    <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
-      </form>
-    </div>
-  </div>
-  
-</dialog>
+    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div id="modalContainer"></div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 
     <script src="./script/home.js"></script>
   </body>

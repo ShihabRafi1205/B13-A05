@@ -60,7 +60,7 @@
 
 - Load all issues and display as per Figma    ||Completed
 
-- On clicking on an open or closed tab, it will load the issues data of the related tab and show it in a display-like card in a 4-column layout like Figma. By default, it will show all data      ----NOT   --2--
+- On clicking on an open or closed tab, it will load the issues data of the related tab and show it in a display-like card in a 4-column layout like Figma. By default, it will show all data      ||Completed
 
 - Each card shows:
   - Title
@@ -71,16 +71,16 @@
   - Priority
   - Label
   - CreatedAt
-- Clicking on a tree name in a card will open a modal and show all the information about that Issue.     ----NOT   -1-
+- Clicking on a tree name in a card will open a modal and show all the information about that Issue.     ||Completed
 
 ### 🚀 Challenges
 
 
 - Show the card Top border based on their category(open, closed), open card will have Green Boder, closed card will have a purple border on top.  ||Completed
 
-- Loading spinner on data load    ----NOT
+- Loading spinner on data load    ||Completed
 
-- Show active button on changing category names     Completed
+- Show active button on changing category names     ||Completed
 
 - Implement Search Functionality and 8 meaningful github commit.  ----NOT  ----4----
 

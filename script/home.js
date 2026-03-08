@@ -5,12 +5,25 @@ const openBtn = document.getElementById("opened-btn");
 const closeBtn = document.getElementById("closed-btn");
 const buttons = document.querySelectorAll(".btn1");
 
+
+const spinnerManage = (status) => {
+  if(status==true){
+    document.getElementById("spinner").classList.remove("hidden")
+    document.getElementById("issues-container").classList.add("hidden")
+  }else{
+    document.getElementById("issues-container").classList.remove("hidden")
+    document.getElementById("spinner").classList.add("hidden")
+  }
+}
+
 const loadIssues = () => {
+  spinnerManage(true)
   fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
     .then((data) => {
       allIssues = data.data;
       displayIssues(allIssues)
+      spinnerManage(false)
     });
 };
 
@@ -38,11 +51,14 @@ const loadModal = (id) => {
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
+    spinnerManage(true)
     buttons.forEach((btn) => {
       btn.classList.remove("bg-[#4A00FF]", "text-white");
     });
     button.classList.add("bg-[#4A00FF]", "text-white");
-    //  filter logic
+
+
+    
     if(button.id == "all-btn"){
       displayIssues(allIssues)
     }else if(button.id == "opened-btn"){
@@ -52,8 +68,11 @@ buttons.forEach((button) => {
       const issuesclosed =allIssues.filter(issue => issue.status=="closed");
       displayIssues(issuesclosed)
     }
+    spinnerManage(false)
   });
 });
+
+
 
 const displayModal = (issue) => {
   const getModalContainer = document.getElementById("modalContainer");
@@ -65,7 +84,7 @@ const displayModal = (issue) => {
       </div>
 
       <h4 class="font-semibold text-[#1F2937]">${issue.title}</h4>
-      <p class="text-[#64748B]">${issue.description}}</p>
+      <p class="text-[#64748B]">${issue.description}</p>
 
       <div class="flex gap-6 ">
         <p class="bg-purple-200 rounded-lg p-1">${issue.labels[0]}</p>
@@ -91,8 +110,10 @@ const displayModal = (issue) => {
   document.getElementById("my_modal_5").showModal();
 };
 
+
+
 const displayIssues = (issues) => {
-  issuesContainer = document.getElementById("issues-container");
+  const issuesContainer = document.getElementById("issues-container");
   issuesContainer.innerHTML = "";
 
   issues.forEach((issue) => {

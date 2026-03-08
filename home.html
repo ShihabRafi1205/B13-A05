@@ -33,25 +33,83 @@
     />
   </head>
   <body>
-    <div class="navbar bg-base-100 shadow-sm">
+    <div
+      class="navbar bg-base-100 shadow-sm pr-0 flex items-center justify-between"
+    >
       <div class="flex-1">
-        <div class="flex-1 flex gap-2 items-center ml-7">
+        <div class="flex-1 flex gap-2 items-center sm:ml-2 md:ml-7">
           <img class="w-9 h-auto" src="./assets/github-logo.png" alt="" />
-          <h3 class="font-semibold text-xl text-xl text-[#1F2937]">
+          <h3 class="font-semibold text-[14px] md:text-xl text-[#1F2937]">
             GitHub Issues Tracker
           </h3>
         </div>
       </div>
       <div class="flex gap-2">
+        <button class="btn btn-ghost btn-circle md:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </button>
         <input
           type="text"
           placeholder="Search"
-          class="input input-bordered w-24 md:w-auto"
+          class="input input-bordered w-24 md:w-auto hidden lg:block"
         />
-        <div class="navbar-end">
-          <a class="btn bg-[#4A00FF] text-white"><i class="fa-solid fa-plus"></i>Button</a>
+        <div class="navbar-end ml-auto mr-2 md:mr-7">
+          <a class="btn bg-[#4A00FF] text-white"
+            ><i class="fa-solid fa-plus"></i>Button</a
+          >
         </div>
       </div>
     </div>
+
+    <section class="w-10/12 mx-auto mt-14 flex gap-2 p-3 shadow-sm">
+      <button class="btn bg-[#4A00FF] text-white">All</button>
+      <button class="btn">Opened</button>
+      <button class="btn">Closed</button>
+    </section>
+
+    <section class="w-10/12 shadow-sm mx-auto flex justify-between p-3 mt-3">
+      <div class="flex items-center gap-2">
+        <div class="img bg-purple-100 p-2 rounded-full"><img src="./assets/Aperture.png" alt="" /></div>
+        <div>
+          <p class="font-bold">50 Issues</p>
+          <p class="sm:tex-[10px] md:text-lg">
+            Track and manage your project issues
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col justify-center md:flex md:flex-row items-center gap-4"
+      >
+        <div class="flex items-center gap-1">
+          <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+          <span>Open</span>
+        </div>
+
+        <div class="flex items-center gap-1">
+          <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+          <span>Closed</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="issues-container" class="p-3 shadow-md w-10/12 mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-3">
+    
+    </section>
+
+    <script src="./script/home.js"></script>
   </body>
 </html>

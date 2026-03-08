@@ -31,19 +31,19 @@
 
 ## 🎨 Design Part
 
-## Login Page
+## Login Page          ||Completed
 - Create a login page containing a logo, title, and sub-title
 - Below that, there will be 2 inputs, a sign-in button, and a demo credential to sign in. Follow the Figma for this page 
 - Styled as per Figma
 
 ## Main Page: 
 
-### Navbar: 
+### Navbar:       ||Completed
 
 - Navbar with website logo/name on the left
 - Search input and button on the right
 
-### Tab Section like Figma: 
+### Tab Section like Figma:    ||Completed
 
 - 3 tab ( All, Open, Closed) at the top of this section.(**All**, **Open**, **Closed**)
 
@@ -56,11 +56,11 @@
 
 
 ## ⚙️ Functionalities
-- In login page, there will be default admin credentials (username, password). You need to sign in using these credentials.
+- In login page, there will be default admin credentials (username, password). You need to sign in using these credentials.    ||Completed
 
-- Load all issues and display as per Figma
+- Load all issues and display as per Figma    ||Completed
 
-- On clicking on an open or closed tab, it will load the issues data of the related tab and show it in a display-like card in a 4-column layout like Figma. By default, it will show all data 
+- On clicking on an open or closed tab, it will load the issues data of the related tab and show it in a display-like card in a 4-column layout like Figma. By default, it will show all data      ----NOT   --2--
 
 - Each card shows:
   - Title
@@ -71,20 +71,20 @@
   - Priority
   - Label
   - CreatedAt
-- Clicking on a tree name in a card will open a modal and show all the information about that Issue. 
+- Clicking on a tree name in a card will open a modal and show all the information about that Issue.     ----NOT   -1-
 
 ### 🚀 Challenges
 
 
-- Show the card Top border based on their category(open, closed), open card will have Green Boder, closed card will have a purple border on top. 
+- Show the card Top border based on their category(open, closed), open card will have Green Boder, closed card will have a purple border on top.  ||Completed
 
-- Loading spinner on data load
+- Loading spinner on data load    ----NOT
 
-- Show active button on changing category names
+- Show active button on changing category names   ----NOT   ---3---
 
-- Implement Search Functionality and 8 meaningful github commit.  
+- Implement Search Functionality and 8 meaningful github commit.  ----NOT  ----4----
 
-- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
+- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot.    ----NOT
     - 1️⃣ What is the difference between var, let, and const?
     - 2️⃣ What is the spread operator (...)?
     - 3️⃣ What is the difference between map(), filter(), and forEach()?

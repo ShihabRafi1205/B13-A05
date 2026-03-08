@@ -1,3 +1,9 @@
+// const allBtn = document.getElementById("all-btn");
+// const openBtn = document.getElementById("opened-btn");
+// const closeBtn = document.getElementById("closed-btn");
+
+
+
 const loadIssues = () => {
   fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
@@ -25,6 +31,16 @@ const loadModal = (id) => {
     .then((res) => res.json())
     .then((data) => displayModal(data.data));
 };
+
+const buttons = document.querySelectorAll(".btn");
+buttons.forEach(button => {
+  button.addEventListener('click', ()=>{
+   buttons.forEach(btn => {
+    btn.classList.remove("bg-[#4A00FF]", "text-white")
+   })
+   button.classList.add("bg-[#4A00FF]", "text-white")
+  })
+})
 
 const displayModal = (issue) =>{
 const getModalContainer = document.getElementById("modalContainer");

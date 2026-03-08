@@ -82,7 +82,7 @@
 
 - Show active button on changing category names     ||Completed
 
-- Implement Search Functionality and 8 meaningful github commit.  ----NOT  ----4----
+- Implement Search Functionality and 8 meaningful github commit.  ||Completed
 
 - Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot.    ----NOT
     - 1️⃣ What is the difference between var, let, and const?

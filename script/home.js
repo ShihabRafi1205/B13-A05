@@ -21,7 +21,7 @@ const loadIssues = () => {
   fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
     .then((data) => {
-      allIssues = data.data;
+     allIssues = data.data;
       displayIssues(allIssues)
       spinnerManage(false)
     });
@@ -126,7 +126,7 @@ const displayIssues = (issues) => {
       </div>
 
       <h4 class="font-semibold text-[#1F2937]">${issue.title}</h4>
-      <p class="text-[#64748B]">${issue.description}}</p>
+      <p class="text-[#64748B]">${issue.description}</p>
 
       <div class="flex gap-6 ">
         <p class="bg-purple-200 rounded-lg p-1">${issue.labels[0]}</p>
@@ -149,3 +149,16 @@ const displayIssues = (issues) => {
 };
 
 loadIssues();
+
+
+// Search
+document.getElementById("btn-search").addEventListener("click", ()=>{
+  const searchInput = document.getElementById("input-search");
+  const searchValue = searchInput.value.trim().toLowerCase();
+
+      const filteredIssues = allIssues.filter(issue => 
+        issue.title.toLowerCase().includes(searchValue)
+      );
+     displayIssues(filteredIssues)
+    })
+// })

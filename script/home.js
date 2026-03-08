@@ -20,6 +20,46 @@ const loadIssues = () => {
 // "updatedAt": "2024-01-15T10:30:00Z"
 // }
 
+const loadModal = (id) => {
+  fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
+    .then((res) => res.json())
+    .then((data) => displayModal(data.data));
+};
+
+const displayModal = (issue) =>{
+const getModalContainer = document.getElementById("modalContainer");
+getModalContainer.innerHTML = `<div class="card space-y-4  p-3   h-full">
+
+        <div class="flex justify-between">
+        <div><img src="./assets/Open-Status.png" alt="" /></div>
+        <p class="text-[#EF4444] p-2 rounded-lg bg-yellow-100">${issue.priority}</p>
+      </div>
+
+      <h4 class="font-semibold text-[#1F2937]">${issue.title}</h4>
+      <p class="text-[#64748B]">${issue.description}}</p>
+
+      <div class="flex gap-6 ">
+        <p class="bg-purple-200 rounded-lg p-1">${issue.labels[0]}</p>
+        <p class="bg-purple-200 rounded-lg p-1">${issue.labels[1] == undefined ? `It can't be found` : issue.labels[1]}</p>
+      </div>
+
+      <hr class="text-gray-300">
+
+      <p class="text-[#64748B]">#1 by john_doe</p>
+      <p class="text-[#64748B]">1/15/2024</p>
+    </div>`;
+
+    if(issue.status=="open"){
+      document.querySelector(".modal-box").classList.add("border-t-3", "border-green-500")
+    }else{
+      document.querySelector(".modal-box").classList.add("border-t-3", "border-purple-500")
+    }
+
+
+document.getElementById("my_modal_5").showModal()
+}
+
+
 const displayIssues = (issues) => {
   issuesContainer = document.getElementById("issues-container");
   // issuesContainer.innerHTML = "";
@@ -46,6 +86,12 @@ const displayIssues = (issues) => {
       <p class="text-[#64748B]">#1 by john_doe</p>
       <p class="text-[#64748B]">1/15/2024</p>
     </div>`;
+
+
+    // Modal
+    cardDiv.addEventListener('click', ()=>{
+      loadModal(issue.id);
+    })
 
     issuesContainer.append(cardDiv);
   });

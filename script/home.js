@@ -6,6 +6,8 @@ const closeBtn = document.getElementById("closed-btn");
 const buttons = document.querySelectorAll(".btn1");
 
 
+count.innerText
+
 const spinnerManage = (status) => {
   if(status==true){
     document.getElementById("spinner").classList.remove("hidden")
@@ -115,6 +117,8 @@ const displayModal = (issue) => {
 const displayIssues = (issues) => {
   const issuesContainer = document.getElementById("issues-container");
   issuesContainer.innerHTML = "";
+
+  document.getElementById("count").innerText = `${issues.length} Issues`;
 
   issues.forEach((issue) => {
     const cardDiv = document.createElement("div");

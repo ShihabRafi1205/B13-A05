@@ -1,13 +1,17 @@
-// const allBtn = document.getElementById("all-btn");
-// const openBtn = document.getElementById("opened-btn");
-// const closeBtn = document.getElementById("closed-btn");
+let allIssues = [];
 
-
+const allBtn = document.getElementById("all-btn");
+const openBtn = document.getElementById("opened-btn");
+const closeBtn = document.getElementById("closed-btn");
+const buttons = document.querySelectorAll(".btn1");
 
 const loadIssues = () => {
   fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
-    .then((data) => displayIssues(data.data));
+    .then((data) => {
+      allIssues = data.data;
+      displayIssues(allIssues)
+    });
 };
 
 // {
@@ -32,19 +36,28 @@ const loadModal = (id) => {
     .then((data) => displayModal(data.data));
 };
 
-const buttons = document.querySelectorAll(".btn");
-buttons.forEach(button => {
-  button.addEventListener('click', ()=>{
-   buttons.forEach(btn => {
-    btn.classList.remove("bg-[#4A00FF]", "text-white")
-   })
-   button.classList.add("bg-[#4A00FF]", "text-white")
-  })
-})
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    buttons.forEach((btn) => {
+      btn.classList.remove("bg-[#4A00FF]", "text-white");
+    });
+    button.classList.add("bg-[#4A00FF]", "text-white");
+    //  filter logic
+    if(button.id == "all-btn"){
+      displayIssues(allIssues)
+    }else if(button.id == "opened-btn"){
+      const issuesOpen =allIssues.filter(issue => issue.status=="open");
+      displayIssues(issuesOpen)
+    }else if(button.id == "closed-btn"){
+      const issuesclosed =allIssues.filter(issue => issue.status=="closed");
+      displayIssues(issuesclosed)
+    }
+  });
+});
 
-const displayModal = (issue) =>{
-const getModalContainer = document.getElementById("modalContainer");
-getModalContainer.innerHTML = `<div class="card space-y-4  p-3   h-full">
+const displayModal = (issue) => {
+  const getModalContainer = document.getElementById("modalContainer");
+  getModalContainer.innerHTML = `<div class="card space-y-4  p-3   h-full">
 
         <div class="flex justify-between">
         <div><img src="./assets/Open-Status.png" alt="" /></div>
@@ -65,24 +78,26 @@ getModalContainer.innerHTML = `<div class="card space-y-4  p-3   h-full">
       <p class="text-[#64748B]">1/15/2024</p>
     </div>`;
 
-    if(issue.status=="open"){
-      document.querySelector(".modal-box").classList.add("border-t-3", "border-green-500")
-    }else{
-      document.querySelector(".modal-box").classList.add("border-t-3", "border-purple-500")
-    }
+  if (issue.status == "open") {
+    document
+      .querySelector(".modal-box")
+      .classList.add("border-t-3", "border-green-500");
+  } else {
+    document
+      .querySelector(".modal-box")
+      .classList.add("border-t-3", "border-purple-500");
+  }
 
-
-document.getElementById("my_modal_5").showModal()
-}
-
+  document.getElementById("my_modal_5").showModal();
+};
 
 const displayIssues = (issues) => {
   issuesContainer = document.getElementById("issues-container");
-  // issuesContainer.innerHTML = "";
+  issuesContainer.innerHTML = "";
 
   issues.forEach((issue) => {
     const cardDiv = document.createElement("div");
-    cardDiv.innerHTML = `<div class="card space-y-4 shadow-sm p-3 border-t-3 ${issue.status=="open"? 'border-green-500' : 'border-purple-500'} h-full">
+    cardDiv.innerHTML = `<div class="card space-y-4 shadow-sm p-3 border-t-3 ${issue.status == "open" ? "border-green-500" : "border-purple-500"} h-full">
 
         <div class="flex justify-between">
         <div><img src="./assets/Open-Status.png" alt="" /></div>
@@ -103,11 +118,10 @@ const displayIssues = (issues) => {
       <p class="text-[#64748B]">1/15/2024</p>
     </div>`;
 
-
     // Modal
-    cardDiv.addEventListener('click', ()=>{
+    cardDiv.addEventListener("click", () => {
       loadModal(issue.id);
-    })
+    });
 
     issuesContainer.append(cardDiv);
   });

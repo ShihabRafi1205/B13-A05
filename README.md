@@ -80,7 +80,7 @@
 
 - Loading spinner on data load    ----NOT
 
-- Show active button on changing category names   ----NOT   ---3---
+- Show active button on changing category names     Completed
 
 - Implement Search Functionality and 8 meaningful github commit.  ----NOT  ----4----
 
